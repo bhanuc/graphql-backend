@@ -1,6 +1,11 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
+	type User {
+		id: Int!
+		username: String!
+		name: String
+	}
 
 	type Query {
 		movies: [Movie]
@@ -28,6 +33,16 @@ const typeDefs = gql`
 		scoutbase_rating: String
 		rating: String
 		actors: [Actor]
+	}
+
+	type returnType {
+		token: String
+		user: User
+	}
+
+	type Mutation {
+		createUser(username: String!, password: String!): returnType
+		login(username: String!, password: String!): returnType
 	}
 `;
 module.exports = typeDefs;
