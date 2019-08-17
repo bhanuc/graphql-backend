@@ -6,6 +6,8 @@ const jwt = require('express-jwt');
 const typeDefs = require('./data/typeDefs');
 const resolvers = require('./data/resolvers');
 const app = express();
+require('dotenv').config();
+
 
 const { port , ext, secret} = process.env;
 
